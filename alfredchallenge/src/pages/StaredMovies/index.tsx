@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeyboardAvoidingView, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';

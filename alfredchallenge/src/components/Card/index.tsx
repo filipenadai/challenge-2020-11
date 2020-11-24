@@ -1,4 +1,5 @@
 import React from 'react';
+import { useWindowDimensions } from 'react-native';
 
 import { useStar } from '../../hooks/star';
 
@@ -23,6 +24,7 @@ const Card: React.FC<CardData> = ({ movie, ...rest }) => {
       onPress={() => starMovie(movie)}
     >
       <MoviePoster
+        style={{ height: (useWindowDimensions().height * 11) / 16 }}
         resizeMode="contain"
         source={{
           uri: movie.poster,
