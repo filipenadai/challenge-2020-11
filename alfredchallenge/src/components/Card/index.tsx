@@ -23,6 +23,7 @@ const Card: React.FC<CardData> = ({ movie, ...rest }) => {
       onPress={() => starMovie(movie)}
     >
       <MoviePoster
+        resizeMode="contain"
         source={{
           uri: movie.poster,
         }}

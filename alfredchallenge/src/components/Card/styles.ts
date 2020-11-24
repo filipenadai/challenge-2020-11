@@ -6,8 +6,8 @@ interface ContainerProps extends RectButtonProperties {
 }
 
 export const Container = styled(RectButton)<ContainerProps>`
-  height: 450px;
   background: #fff;
+  width: 100%;
   margin: 4px 0;
   border-radius: 10px;
   border-width: 2px;
@@ -21,16 +21,15 @@ export const Container = styled(RectButton)<ContainerProps>`
 `;
 
 export const MoviePoster = styled.Image`
-  flex: 1;
+  min-height: 450px;
+  margin-top: 25px;
+  width: 100%;
   border-radius: 10px;
-  margin: 10px;
 `;
 
 export const Title = styled.Text`
   margin-top: 16px;
-  max-width: 350px;
   height: 60px;
-  width: 100%;
   text-align: center;
   font-size: 20px;
   color: #2f3640;
@@ -39,7 +38,6 @@ export const Title = styled.Text`
 
 export const Description = styled.Text`
   height: 40px;
-  width: 100%;
   text-align: center;
   font-size: 18px;
   color: #2f3640;

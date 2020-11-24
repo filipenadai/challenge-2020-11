@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Movies from '../pages/Movies';
+import StaredMovies from '../pages/StaredMovies';
 
 const AppRoutes = createStackNavigator();
 
@@ -13,6 +14,7 @@ const Routes: React.FC = () => (
     }}
   >
     <AppRoutes.Screen name="Movies" component={Movies} />
+    <AppRoutes.Screen name="StaredMovies" component={StaredMovies} />
   </AppRoutes.Navigator>
 );
 
