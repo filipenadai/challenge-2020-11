@@ -46,7 +46,7 @@ const Movies: React.FC = () => {
           ref={formRef}
           onSubmit={handleSubmitSearch}
         >
-          <Input name="search" />
+          <Input name="search" placeholder="Insira um filme" />
           <Button onPress={() => formRef.current?.submitForm()}>Buscar</Button>
         </Form>
         {movies && (
