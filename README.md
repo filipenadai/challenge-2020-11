@@ -1,28 +1,38 @@
-# Desafio Alfred: Novembro/2020 
+<h1>Desafio Alfred</h1>
 
-Neste desafio você terá que implementar um sistema mobile com React Native onde será possível buscar por filmes e series utilizando a API (http://www.omdbapi.com/). A sua solução deve:
+Iniciei uma aplicação nativa e pensei nas melhores estratégias para realizar o desafio, mantendo um código que julguei limpo e agradável.
 
-- Permitir a busca por filmes
-- Listar os filmes encontrados
-- Permitir escolher filmes favoritos
-- Permitir remover um filme dos favoritos
-- Listar os filmes favoritos
-- Caso o aplicativo seja fechado, os favoritos não devem ser perdidos
+Foi proposto os seguintes tópicos: 
 
-Para ajudar na concepção do layout, estamos disponibilizando abaixo um print de um aplicativo que atende os requisitos listados. Use sua criatividade para criar um layout novo, ou reproduza o leyout proposto, se preferir.
+- [x] Permitir a busca por filmes
+- [x] Listar os filmes encontrados
+- [x] Permitir escolher filmes favoritos
+- [x] Permitir remover um filme dos favoritos
+- [x] Listar os filmes favoritos
+- [x] Caso o aplicativo seja fechado, os favoritos não devem ser perdidos
 
-Para facilitar um pouco mais as coisas, já deixamos separada uma chave de acesso para a API (ou você pode criar a sua também):
+<h3>Busca dos filmes</h3>
+Para realizar a busca, utilizei o método tradicional com axios fazendo uma consulta simples, porém como havia uma API_KEY eu separei esse dado em uma constante da aplicação para não poluir a consulta. Utilizei a biblioteca Unform para fazer o formulário de pesquisa.
 
 <p align="center">
-  <img src="./cinema-app.gif" alt="cinema-app" width="200px">
+  <img src="https://i.imgur.com/ryro1ir.png" alt="Tela inicial vazia" width="200px">
 </p>
 
-Chave de API: 925eba28
-Exemplo requisição: GET http://www.omdbapi.com/?apikey=925eba28&s=batman
+<h3>Listar os filmes encontrados</h3>
+Utilizei o FlatList por ser uma feature simples e funcional, juntamente com ela desenvolvi um componente de Card para mostrar os filmes encontrados.
 
-Você pode criar uma aplicação nativa, ou com expo (sdk39+).
+<p align="center">
+  <img src="https://i.imgur.com/rPqcBHH.png" alt="Listagem dos filmes" width="200px">
+</p>
 
-## Entrega da sua solução
-Altere o arquivo README.md descrevendo o que o aplicativo faz e que tipo de premissas foram adotadas para desenvolver as funcionalidades. Adicione pelo menos uma imagem do aplicativo, pode ser uma imagem estática ou um gif do aplicativo sendo utilizado. Para entregar o projeto, faça um fork neste repositório e envie o link do seu repositório para o responsável quando o projeto estiver finalizado.
+<h3>Permitir escolher filmes favoritos e removelos</h3>
+Essa parte eu achei muito interessante, criei um hook personalizado onde ele controla todos os Filmes estrelados pelo usuário, o meu componente de Card toma forma com fundo amarelo para simbolizar o filme preferido, todo clique em cima deste Card ele atribui o filme como estrelado, e se o filme ja estiver estrelado ao clicar você irá remove-lo.
+O meu hook contem um acesso simples ao AsyncStorage com todos os filmes estrelados, assim posso usa-lo como provider para aplicação e todos os próximos componentes  desfrutarem destes dados. Também no meu hook se encontra a função starMovie, que é utilizada para estrelar os filmes.
 
-Ficamos no aguardo da entrega da sua solução e desejamos boa sorte ;)
+<p align="center">
+  <img src="https://i.imgur.com/1m39AY2.png" alt="Filme estrelado" width="200px">
+  <img src="https://i.imgur.com/gG8YGLW.png" alt="Listagem dos filmes estrelados" width="200px">
+</p>
+
+<h3>Guardar informção no dispositivo</h3>
+Como disse no tópico passado eu utilizei o AsyncStorage do RN para fazer esse storage de dados.
