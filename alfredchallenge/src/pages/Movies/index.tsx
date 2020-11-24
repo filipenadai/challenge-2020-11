@@ -15,7 +15,7 @@ import { API_KEY } from '../../config/constants';
 interface Movie {
   Title: string;
   Year: string;
-  imbdID: string;
+  imdbID: string;
   Poster: string;
 }
 
@@ -49,16 +49,18 @@ const Movies: React.FC = () => {
           <Input name="search" />
           <Button onPress={() => formRef.current?.submitForm()}>Buscar</Button>
         </Form>
-        {movies.length > 0 && (
+        {movies && (
           <FlatList
             data={movies}
-            keyExtractor={movie => movie.imbdID}
+            keyExtractor={movie => movie.imdbID}
             renderItem={({ item }) => (
               <Card
-                key={item.imbdID}
-                movieTitle={item.Title}
-                poster={item.Poster}
-                year={item.Year}
+                movie={{
+                  imdbID: item.imdbID,
+                  movieTitle: item.Title,
+                  poster: item.Poster,
+                  year: item.Year,
+                }}
               />
             )}
           />

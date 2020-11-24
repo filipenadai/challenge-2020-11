@@ -1,19 +1,29 @@
-import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
+import styled, { css } from 'styled-components/native';
+import { RectButton, RectButtonProperties } from 'react-native-gesture-handler';
 
-export const Container = styled(RectButton)`
+interface ContainerProps extends RectButtonProperties {
+  isStared: boolean;
+}
+
+export const Container = styled(RectButton)<ContainerProps>`
   height: 450px;
   background: #fff;
-  margin-top: 8px;
+  margin: 4px 0;
   border-radius: 10px;
   border-width: 2px;
   border-color: #999;
+
+  ${props =>
+    props.isStared &&
+    css`
+      background: #fbc531;
+    `}
 `;
 
 export const MoviePoster = styled.Image`
   flex: 1;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-radius: 10px;
+  margin: 10px;
 `;
 
 export const Title = styled.Text`
